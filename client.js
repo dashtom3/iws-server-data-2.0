@@ -12,6 +12,7 @@ print(handler.CalcModbusCrc('010300000100'))
 var socket = net.createServer()
 socket.listen(6790,'0.0.0.0')
 var data = [{'172.16.2.214':{length:41,zhan:01}}]
+// print(handler.CalcModbusCrc('010100000029'))
 socket.on('connection',(sock)=>{
   print('connected')
   print(sock)
@@ -21,7 +22,9 @@ socket.on('connection',(sock)=>{
   // print(handler.ResponseHandler('010103cd6b05'))
   // print(handler.ResponseHandler('010203cd6b05'))
   // sock.write(handler.Str2Hex('000100000006'+handler.CalcModbusCrc('010300000001')))
-  sock.write('010100000029'+handler.CalcModbusCrc('010100000029'))
+  // sock.write('010100000029'+handler.CalcModbusCrc('010100000029'))
+  sock.write(handler.CMD_ReadHoldingRegisters(1,0,41))
+  sock.write(handler.CMD_ReadCoils(1,0,41))
 })
 socket.on('data',(data)=>{
   print(data)
