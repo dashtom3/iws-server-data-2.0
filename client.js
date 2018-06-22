@@ -15,18 +15,19 @@ var data = [{'172.16.2.214':{length:41,zhan:01}}]
 // print(handler.CalcModbusCrc('010100000029'))
 socket.on('connection',(sock)=>{
   print('connected')
-  print(sock)
-  print(sock.remoteAddress + '' + sock.remotePort)
+  print(sock.remoteAddress)
   // print(handler.CMD_ReadHoldingRegisters(1,16,16))
   // print(handler.ResponseHandler('010306010000ff0010'))
   // print(handler.ResponseHandler('010103cd6b05'))
   // print(handler.ResponseHandler('010203cd6b05'))
   // sock.write(handler.Str2Hex('000100000006'+handler.CalcModbusCrc('010300000001')))
   // sock.write('010100000029'+handler.CalcModbusCrc('010100000029'))
+  print("发送请求:"+handler.CMD_ReadHoldingRegisters(1,0,41)+","+handler.CMD_ReadCoils(1,0,41))
   sock.write(handler.CMD_ReadHoldingRegisters(1,0,41))
   sock.write(handler.CMD_ReadCoils(1,0,41))
 })
 socket.on('data',(data)=>{
+  print("读取数据:"+data)
   print(data)
 })
 
