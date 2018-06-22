@@ -13,7 +13,7 @@ class ModbusStringHandler {
   constructor(){
     this.tbl=[]
   }
-  CMD_ReadCoils(unityId,start,number){
+  CMD_ReadCoils(unitId,start,number){
     //unityId,0x01,Hi起始，Lo起始，Hi数量，Lo数量
     let cmd = ''
     cmd += this.Pad(unitId,2)
