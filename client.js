@@ -10,7 +10,7 @@ print(handler.CalcModbusCrc('010300000100'))
 //   print(handler.Pad(i,4,16,true))
 // }
 var socket = net.createServer()
-socket.listen(6790,'218.23.124.104')
+socket.listen(6790)
 
 socket.on('connection',()=>{
   print('connected')
