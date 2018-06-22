@@ -11,7 +11,7 @@ print(handler.CalcModbusCrc('010300000100'))
 // }
 var socket = net.createServer()
 socket.listen(6790,'0.0.0.0')
-var data = [{'172.16.2.214':{length:41,zhan:01}}]
+// var data = [{'172.16.2.214':{length:41,zhan:01}}]
 // print(handler.CalcModbusCrc('010100000029'))
 socket.on('connection',(sock)=>{
   print('connected')
