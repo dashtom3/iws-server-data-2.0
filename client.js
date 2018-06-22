@@ -14,6 +14,7 @@ socket.listen(6790)
 
 socket.on('connection',(sock)=>{
   print('connected')
+  print(sock)
   print(handler.CMD_ReadHoldingRegisters(1,16,16))
   print(handler.ResponseHandler('010306010000ff0010'))
   print(handler.ResponseHandler('010103cd6b05'))
