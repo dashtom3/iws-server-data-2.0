@@ -18,7 +18,7 @@ socket.on('connection',()=>{
   print(handler.ResponseHandler('010306010000ff0010'))
   print(handler.ResponseHandler('010103cd6b05'))
   print(handler.ResponseHandler('010203cd6b05'))
-  clientSocket.write(handler.Str2Hex('000100000006'+handler.CalcModbusCrc('010300000001')))
+  socket.write(handler.Str2Hex('000100000006'+handler.CalcModbusCrc('010300000001')))
 })
 socket.on('data',(data)=>{
   print(data)
