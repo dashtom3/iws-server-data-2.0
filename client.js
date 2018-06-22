@@ -23,7 +23,7 @@ socket.on('connection',(sock)=>{
   // sock.write(handler.Str2Hex('000100000006'+handler.CalcModbusCrc('010300000001')))
   // sock.write('010100000029'+handler.CalcModbusCrc('010100000029'))
   print("发送请求:"+handler.CMD_ReadHoldingRegisters(1,0,41)+","+handler.CMD_ReadCoils(1,0,41))
-  var temp = await sock.write(handler.CMD_ReadHoldingRegisters(0,0,41))
+  var temp = sock.write(handler.CMD_ReadHoldingRegisters(0,0,41))
   console.log(temp)
   sock.write(handler.CMD_ReadCoils(0,0,41))
   sock.write(handler.CMD_ReadHoldingRegisters(1,0,41))
